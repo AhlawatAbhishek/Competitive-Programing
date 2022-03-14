@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+    //dijkstra for sparse graph
+    static void dijkstraSp(Vc<Vc<pll>> &al, Vc<ll>&dv, ll src){
+        priority_queue<pll, Vc<pll>, greater<pll>> pq;
+        pq.push({dv[src], src});
+        while(!pq.empty()){
+            auto pr = pq.top();
+            ll v = pr.ss, dist = pr.ff;
+            pq.pop();
+            //if the current vertex pair is not the optimal one for curr vertex
+            if(dv[v] != dist)continue;
+            for(auto neigh : al[v]){
+                ll u = neigh.ss, len = neigh.ff;
+                if(dv[v] + len < dv[u]){
+                    dv[u] = dv[v] + len;
+                    pq.push({dv[u], u});
+                }
+            }
+        }
+    }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dijkstraSp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

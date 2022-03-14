@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+  int binarySearch(ll arr[], int n, ll item){
+   int left = 0, right = n-1;
+   while(left<=right){
+   	 int mid = left + (right - left)/2;
+   	 if(arr[mid] == item){
+        //cout<<"found"<<"\n";
+        return mid;
+   	 }else if(arr[mid] < item){
+        left = mid+1;
+   	 }else{
+         right = mid-1;
+   	 }
+   }
+   return -1;
+  } 
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>binary_Search_cpp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

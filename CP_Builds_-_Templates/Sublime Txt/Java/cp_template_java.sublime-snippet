@@ -1,0 +1,229 @@
+ <snippet>
+    <content><![CDATA[
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+import java.math.*;
+
+public class ${TM_FILENAME/(\.\w+)//g} {
+   static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            try {
+                br = new BufferedReader(
+                        new FileReader("input.txt"));
+                PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
+                System.setOut(out);
+            } catch (Exception e) {
+                br = new BufferedReader(new InputStreamReader(System.in));
+            }
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+// end of fast i/o code    
+//---------------fast reader code ends---------------------------------------------------------
+    
+//-----Fenwick Tree or Binary Indexed Tree----------------------------------------------------
+    static class Fenwick
+    {
+        private int fenTree[] = null, size;
+        Fenwick(int size)
+        {
+            this.size = size + 1;
+            fenTree = new int[size + 1];
+        }
+        public void add(int val, int indx)
+        {
+            indx++;
+            while(indx < this.size)
+            {
+                fenTree[indx] += val;
+                indx += (indx & (-indx)); //adding the last set bit
+            }
+        }
+        //upto which index you want prefix sum
+        public int getPrefSum(int indx)
+        {
+            int sum = 0;
+            indx++;
+            while(indx > 0)
+            {
+                sum += fenTree[indx];
+                indx -= (indx & (-indx)); //turning off the last set bit
+            }
+            return sum;
+        }
+    }
+//-----------Disjoint set / Union-find-----------------------------------------------    
+    static class DisjointSet
+    {
+        int parent[] = null;
+        int ranks[] = null;
+
+        DisjointSet(int len)
+        {
+            parent = new int[len];
+            ranks = new int[len];
+            for (int indx = 0; indx < parent.length; indx++)
+            {
+                parent[indx] = indx;
+                ranks[indx] = 0;
+            }
+        }
+
+        // Time complexity: O(Alpha(n)), Alpha(n) <= 4, therefore O(1) and auxiliary
+        // space: O(1) for recursion stack
+        public void union(int x, int y)
+        {
+            int xRep = find(x);
+            int yRep = find(y);
+            if (xRep == yRep)
+                return;
+            if (ranks[xRep] < ranks[yRep])
+                parent[xRep] = yRep;
+            else if (ranks[yRep] < ranks[xRep])
+                parent[yRep] = xRep;
+            else
+            {
+                parent[yRep] = xRep;
+                ranks[xRep]++;
+            }
+        }
+
+        // Time complexity: O(LogN) and auxiliary space: O(1) for recursion stack
+        public int find(int x)
+        {
+            if (parent[x] == x)
+            {
+                return x;
+            }
+            return parent[x] = find(parent[x]);
+        }
+    }
+//-------GCD & LCM Section-----------------------------------------------------------------    
+    private static int findGCDArr(int arr[], int n)
+    {
+        int result = arr[0];
+        for (int element: arr){
+            result = gcd(result, element);
+ 
+            if(result == 1)
+            {
+               return 1;
+            }
+        }
+ 
+        return result;
+    }
+    private static int gcd(int a, int b)
+    {
+        if (a == 0)
+            return b;
+        return gcd(b % a, a);
+    }
+    public static BigInteger bigLcm(String a, String b)
+    {
+        // convert string 'a' and 'b' into BigInteger
+        BigInteger s = new BigInteger(a);
+        BigInteger s1 = new BigInteger(b);
+  
+        // calculate multiplication of two bigintegers
+        BigInteger mul = s.multiply(s1);
+  
+        // calculate gcd of two bigintegers
+        BigInteger gcd = s.gcd(s1);
+  
+        // calculate lcm using formula: lcm * gcd = x * y
+        BigInteger lcm = mul.divide(gcd);
+        BigInteger lc = lcm.divide(s);
+        return lc;
+    }
+    private static int lcm(int a, int b)
+    {
+        return (a / gcd(a, b)) * b;
+    }
+    static List<Integer> findFactors(int n)
+    {
+        List<Integer> res = new ArrayList<>();
+        // Note that this loop runs till square root
+        for (int i=1; i<=Math.sqrt(n); i++)
+        {
+            if (n%i==0)
+            {
+                // If divisors are equal, add only one
+                if (n/i == i)
+                    res.add(i);
+      
+                else // Otherwise add both
+                    res.add(i);
+                    res.add(n/i);
+            }
+        }
+        return res;
+    }
+//-----------------------------------------------------------------------------------------    
+//--------------------------binary exponentiation or power with modulo m-------------------    
+    private static long binPow(int a, int b, int m){
+      if(b==0){
+        return a%m;
+      }
+      if(b % 2 == 0){
+       long pw = binPow(a, b/2, m);
+       return (1l * pw * pw % m);
+      }else{
+        long pw = binPow(a, (b-1)/2, m);
+        return 1l * pw * pw * a % m;  
+      }
+    }
+
+    private static long mulInvMod(int x, int m){
+      return binPow(x, m-2, m);
+    }
+//*****************************************************************************************
+//--------------------------------Template ends--------------------------------------------    
+    public static void main(String[] args) {
+        FastReader reader = new FastReader();
+        int t = reader.nextInt();
+        for(int tt = 1; tt<=t; tt++){
+
+        }
+    }
+}
+]]></content>
+    <tabTrigger>CP_Temp_Java</tabTrigger>
+    <!-- <scope>source.python</scope> -->
+</snippet>

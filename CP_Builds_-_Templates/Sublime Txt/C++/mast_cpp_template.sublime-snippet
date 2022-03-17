@@ -25,7 +25,11 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr
 #define pb push_back
 #define ppb pop_back
 #define ff first
-#define ss second   
+#define ss second
+#define nl "\n"
+#define  lb lower_bound
+#define  ub upper_bound   
+#define fo(i , n) for(ll i = 0 ; i < n ; i++)
 
 const ll MAX =  1e10;
 const ll MOD = 1e9 + 7;
@@ -46,6 +50,7 @@ int main() {
         // cout << "Case #" << t << ": ";
         solve();
     }
+    cerr << "Time : " << 1000 * ((double)clock()) / (double)CLOCKS_PER_SEC << "ms\n";
 }
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

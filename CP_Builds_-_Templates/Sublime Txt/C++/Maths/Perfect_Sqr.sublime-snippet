@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+//to check if n is a perfect square
+bool isPerfectSq(ll n){
+    ll root = (ll)sqrt(n);
+    return root * root == n;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>perfectSqr</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

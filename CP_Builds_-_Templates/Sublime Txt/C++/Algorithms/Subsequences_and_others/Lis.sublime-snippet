@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+ll lis(vector<ll> const& a) {
+    ll n = a.size();
+    const ll INF = 1e9;
+    vector<ll> d(n+1, INF);
+    d[0] = -INF;
+
+    for (ll i = 0; i < n; i++) {//if no duplicates are allowed then replace upper_bound by lower_bound
+        ll j = upper_bound(d.begin(), d.end(), a[i]) - d.begin();
+        if (d[j-1] < a[i] && a[i] < d[j])
+            d[j] = a[i];
+    }
+
+    ll ans = 0;
+    for (ll i = 0; i <= n; i++) {
+        if (d[i] < INF)
+            ans = i;
+    }
+    return ans;
+}
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>lis</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

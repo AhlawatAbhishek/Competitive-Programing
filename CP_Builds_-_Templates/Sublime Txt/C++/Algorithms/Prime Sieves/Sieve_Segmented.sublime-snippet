@@ -1,0 +1,39 @@
+<snippet>
+	<content><![CDATA[
+	vector<ll> prime;
+    void segSieve(ll l, ll h){
+       ll sq = sqrt(h);
+       sieveUtil(sq);
+       vector<bool> isPrime(h-l+1, true);   
+       for(ll p : prime){
+          ll sm = (l/p)*p;
+          if(sm < l){
+           sm+=p;
+          } 
+          for(ll m = sm; m<=h; m++){
+             isPrime[m-l] = false;
+          }
+          for(ll i = l; i<=h; i++){
+           if(isPrime[i-l]){
+             cout<<i<<" ";
+           }
+          }
+       }
+    }
+    void sieveUtil(ll n){ 
+		vector<bool> is_prime(n+1, true);  
+		is_prime[0] = is_prime[1] = false; 
+		for (ll i = 2; i * i <= n; i++) { 
+    		if (is_prime[i]) {
+    		    prime.pb(i); 
+        		for (ll j = i * i; j <= n; j += i) 
+            		is_prime[j] = false; 
+    		} 
+		} 
+    }
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sieve_segmented</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

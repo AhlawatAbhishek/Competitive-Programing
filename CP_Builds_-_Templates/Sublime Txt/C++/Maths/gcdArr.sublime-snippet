@@ -1,0 +1,19 @@
+<snippet>
+  <content>
+<![CDATA[
+ll gcdArr(Vc<ll> arr)
+{
+    ll hcf = 0;
+    fo(indx, 0, sza(arr))
+    {
+        hcf = gcd(hcf, arr[indx]);
+    }
+    return hcf;
+}
+]]>
+  </content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>gcdArr</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

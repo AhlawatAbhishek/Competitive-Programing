@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+Vc<Vc<ll>>permu;
+//this perumtation method can be used for string and arrays both, TC: O(n!)
+void permuat(Vc<ll>num, ll left, ll right)
+{
+    if(left == right)
+    {
+        Vc<ll>per(num);
+        //this list will be declared in global scope
+        permu.pb(per);
+        return;
+    }
+    fo(indx, left, right + 1)
+    {
+        swap(num[indx], num[left]);
+        permuat(num, left + 1, right);
+        swap(num[indx], num[left]);
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>allPermutations</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+class UnionFind{
+    vector<int> id;
+ public:   
+    UnionFind(int n) : id(n){
+        iota(begin(id), end(id), 0);
+    }   
+    int find(int node){
+        return id[node] == node ? node :  find(id[node]);
+    }
+    void connect(int node1, int node2){
+       if(!isConnected(node1, node2)) 
+        id[find(node2)] = find(node1);
+    }
+    bool isConnected(int node1, int node2){
+        return find(node1) == find(node2);
+    }
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>UnionFindNaive</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

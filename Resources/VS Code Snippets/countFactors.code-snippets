@@ -1,0 +1,20 @@
+{
+	"": {
+		"prefix": "countFactors",
+		"body": [
+		  "Vc<ll> fct(1e7, 0);",
+		  "void countFactors(ll num){",
+		  "    if(fct[num] != 0ll)return;",
+		  "    ll facs = 0l; ",
+		  "    for(ll f = 1; f<=sqrt(num); f++){",
+		  "        if(num % f == 0){",
+		  "           if(num / f == f)facs++;",
+		  "           else facs += 2;",
+		  "        }",
+		  "    }",
+		  "    fct[num] = facs;",
+		  "}"
+		],
+		"description": ""
+	  }
+}

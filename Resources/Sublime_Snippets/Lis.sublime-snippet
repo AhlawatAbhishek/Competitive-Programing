@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+ll lis(vector<ll> const& a) {
+    ll n = sza(a);
+    Vc<ll> dp(n+1);
+         int len = 0;
+         fo(indx, 0, n){
+             ll ele = a[indx];
+             int idx = lower_bound(dp.begin(), dp.begin() + len, ele) - dp.begin();
+             if(idx == len){
+                 dp[idx] = ele;
+                 len++;
+             }else if(ele < dp[idx]){
+                 dp[idx] = ele;
+             }              
+         }
+         return len;
+}
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>lis</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,13 @@
+{
+	"": {
+		"prefix": "perfectSqr",
+		"body": [
+		  "//to check if n is a perfect square",
+		  "bool isPerfectSq(ll n){",
+		  "    ll root = (ll)sqrt(n);",
+		  "    return root * root == n;",
+		  "}"
+		],
+		"description": ""
+	  }
+}

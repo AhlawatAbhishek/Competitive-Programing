@@ -1,0 +1,17 @@
+{
+	"": {
+		"prefix": "gcdArr",
+		"body": [
+		  "ll gcdArr(Vc<ll> arr)",
+		  "{",
+		  "    ll hcf = 0;",
+		  "    fo(indx, 0, sza(arr))",
+		  "    {",
+		  "        hcf = gcd(hcf, arr[indx]);",
+		  "    }",
+		  "    return hcf;",
+		  "}"
+		],
+		"description": ""
+	  }
+}

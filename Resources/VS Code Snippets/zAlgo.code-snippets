@@ -1,0 +1,26 @@
+{
+	"": {
+		"prefix": "zAlgo",
+		"body": [
+		  "Vc<ll> zAlgo(string s){",
+		  "        ll len = s.size();",
+		  "        Vc<ll> z(len);",
+		  "        ll left = 0, right = 0;",
+		  "        for(ll indx = 1; indx<len; indx++){",
+		  "            if(indx<=right){",
+		  "                z[indx] = min(z[indx-left], right - indx + 1);",
+		  "            }",
+		  "            while(indx+z[indx] < len && s[z[indx]] == s[z[indx]+indx]){",
+		  "                    z[indx]++;",
+		  "            }",
+		  "            if(indx+z[indx]-1 > right){",
+		  "                left = indx;",
+		  "                right = indx + z[indx] - 1;",
+		  "            }",
+		  "        }",
+		  "        return z;",
+		  "    }"
+		],
+		"description": ""
+	  }
+}

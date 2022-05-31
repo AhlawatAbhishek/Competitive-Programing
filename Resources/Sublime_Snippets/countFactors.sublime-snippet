@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+Vc<ll> fct(1e7, 0);
+void countFactors(ll num){
+    if(fct[num] != 0ll)return;
+    ll facs = 0l; 
+    for(ll f = 1; f<=sqrt(num); f++){
+        if(num % f == 0){
+           if(num / f == f)facs++;
+           else facs += 2;
+        }
+    }
+    fct[num] = facs;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>countFactors</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,11 @@
+{
+	"": {
+		"prefix": "baseLog",
+		"body": [
+		  "ll baseLog(ld x, ld base) {",
+		  "    return (ll)(log(x) / log(base));",
+		  "}"
+		],
+		"description": ""
+	  }
+}

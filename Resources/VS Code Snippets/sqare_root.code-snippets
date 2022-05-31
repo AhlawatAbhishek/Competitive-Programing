@@ -1,0 +1,23 @@
+{
+	"": {
+		"prefix": "sqare_root",
+		"body": [
+		  "// Binary serarch: O(log(N/e))",
+		  "long double sqare_root(long double x, long double e)",
+		  "{",
+		  "    long double beg = 0, end = x+1, mid;",
+		  "    while(beg <= end)",
+		  "    {",
+		  "        mid = (long double)(beg + end)/(long double)(2);",
+		  "        if(abs(mid*mid - x) < e*10)",
+		  "            return mid;",
+		  "        else if(mid*mid < x)",
+		  "            beg = mid + e;",
+		  "        else",
+		  "            end = mid - e;",
+		  "    }",
+		  "}"
+		],
+		"description": ""
+	  }
+}

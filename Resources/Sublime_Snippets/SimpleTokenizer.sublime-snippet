@@ -1,0 +1,20 @@
+<snippet>
+  <content><![CDATA[
+Vc<string> simple_tokenizer(string s)
+{
+    Vc<string> res;
+    stringstream ss(s);
+    string word;
+    while (ss >> word)
+    {
+        res.pb(word);
+    }
+    return res;
+}
+
+]]></content>
+  <tabTrigger>SimpleTokenizer</tabTrigger>
+  <description></description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope >source.python</scope > -->
+</snippet>

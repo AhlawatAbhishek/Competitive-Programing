@@ -1,0 +1,20 @@
+{
+	"": {
+		"prefix": "SimpleTokenizer",
+		"body": [
+			"Vc<string> simple_tokenizer(string s)",
+			"{",
+			"    Vc<string> res;",
+			"    stringstream ss(s);",
+			"    string word;",
+			"    while (ss >> word)",
+			"    {",
+			"        res.pb(word);",
+			"    }",
+			"    return res;",
+			"}",
+			""
+		],
+		"description": ""
+	}
+}

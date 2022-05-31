@@ -1,0 +1,13 @@
+<snippet>
+  <content><![CDATA[
+float roundoff(float value, unsigned char prec)
+{
+  float pow_10 = pow(10.0f, (float)prec);
+  return round(value * pow_10) / pow_10;
+}
+]]></content>
+  <tabTrigger>DecimalPlaceFix</tabTrigger>
+  <description></description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope >source.python</scope > -->
+</snippet>

@@ -1,17 +1,19 @@
 <snippet>
-	<content><![CDATA[
-long long binpow(long long a, long long b) {
-    if (b == 0)
-        return 1;
-    long long res = binpow(a, b / 2);
-    if (b % 2)
-        return res * res * a;
-    else
-        return res * res;
+  <content><![CDATA[
+long long binpow(long long a, long long b, ll mod) {
+    ll res = 1;
+    while(b){
+        if((b & 1) != 0){
+            res = ((res % mod) * (a % mod))%mod;
+        }
+        a = (a % mod * a % mod)%mod;
+        b >>=1;
+    }
+    return res;
 }
 ]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>binpow</tabTrigger>
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<!-- <scope>source.python</scope> -->
+  <tabTrigger>binpow</tabTrigger>
+  <description></description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope >source.python</scope > -->
 </snippet>
